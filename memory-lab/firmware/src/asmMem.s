@@ -56,13 +56,13 @@ asmMem:
     push {r4-r11,LR}
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
-    LDR R1, =counter
+    LDR R1, =counter	/* R1 = address of counter */
     MOV R0, #0
-    STR R0, [R1]
+    STR R0, [R1]	/* write 0 into counter */
     
-    LDR R0, [R1]
-    ADD R0, R0, #1
-    STR R0, [R1]
+    LDR R0, [R1]	/* read counter back into register 0 */
+    ADD R0, R0, #1	/* add 1 */
+    STR R0, [R1]	/* write the added value back */
 
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
     
