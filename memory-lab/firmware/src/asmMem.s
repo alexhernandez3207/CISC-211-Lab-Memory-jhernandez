@@ -9,7 +9,7 @@
 /* create a string */
     
 /*** STUDENTS: HINT: this is the string that the C code prints out!  **/
-nameStr: .asciz "Hello. My name is Inigo Montoya."  
+nameStr: .asciz "Hello. My name is Jesus Hernandez."  
 
  .align
  
@@ -17,6 +17,9 @@ nameStr: .asciz "Hello. My name is Inigo Montoya."
 .global nameStrPtr
 .type nameStrPtr,%gnu_unique_object
 nameStrPtr: .word nameStr   /* Assign the mem loc of nameStr to nameSrPtr */
+ 
+ .align
+ counter: .word 0
  
 /* Tell the assembler that what follows is in instruction memory    */
 .text
@@ -53,7 +56,13 @@ asmMem:
     push {r4-r11,LR}
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
-
+    LDR R1, =counter
+    MOV R0, #0
+    STR R0, [R1]
+    
+    LDR R0, [R1]
+    ADD R0, R0, #1
+    STR R0, [R1]
 
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
     
